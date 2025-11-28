@@ -23,6 +23,10 @@ rootless:
 $ docker run -p 8080:8080 -v /path/to/my/files/:/opt/www/files/ banghasan/nginx-file-browser
 ```
 
+Image tersedia di Docker Hub (`banghasan/nginx-file-browser`) maupun GitHub
+Container Registry (`ghcr.io/<owner>/nginx-file-browser`), jadi silakan pilih
+registry yang paling sesuai atau mirror ke registry internal Anda.
+
 ### Menggunakan Docker Compose
 
 ```
@@ -40,11 +44,20 @@ services:
       - "8081:8080" # image rootless mengekspos port 8080 di dalam kontainer
     volumes:
       - /path/to/my/files/:/opt/www/files/:ro
+
+  file-browser-arm64:
+    image: banghasan/nginx-file-browser:latest-arm64
+    platform: linux/arm64
+    ports:
+      - "8082:80"
+    volumes:
+      - /path/to/my/files/:/opt/www/files/:ro
 ```
 
 Simpan sebagai `docker-compose.yml` (atau `compose.yaml`) kemudian jalankan
-`docker compose up -d` untuk menyalakan keduanya. Hapus layanan yang tidak
-dibutuhkan jika hanya ingin menjalankan salah satunya.
+`docker compose up -d` untuk menyalakan layanan yang masih ada di file (root,
+rootless, arm64). Hapus layanan yang tidak dibutuhkan jika hanya ingin
+menjalankan sebagian.
 
 Setelah kontainer berjalan, buka browser ke alamat IP host docker beserta port yang dipetakan. Dengan contoh di atas dan IP host `192.168.0.200`, akses:
 

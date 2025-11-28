@@ -26,6 +26,10 @@ rootless:
 $ docker run -p 8080:8080 -v /path/to/my/files/:/opt/www/files/ banghasan/nginx-file-browser
 ```
 
+Images are published to both Docker Hub (`banghasan/nginx-file-browser`) and
+GitHub Container Registry (`ghcr.io/<owner>/nginx-file-browser`), so you can pull
+from whichever registry fits your workflow or mirror them internally.
+
 ### Using Docker Compose
 
 ```
@@ -43,11 +47,19 @@ services:
       - "8081:8080" # rootless image exposes 8080 inside the container
     volumes:
       - /path/to/my/files/:/opt/www/files/:ro
+
+  file-browser-arm64:
+    image: banghasan/nginx-file-browser:latest-arm64
+    platform: linux/arm64
+    ports:
+      - "8082:80"
+    volumes:
+      - /path/to/my/files/:/opt/www/files/:ro
 ```
 
 Save this as `docker-compose.yml` (or `compose.yaml`) and run `docker compose up -d`
-to start both variants. Remove the service you don't need if you're only
-running one of them.
+to start whichever variants you keep in the file (root, rootless, arm64). Remove
+the services you don't need if you're only running a subset.
 
 With container up and running you can point your browser to IP of docker host with given port to view the files. For example with above run command assuming docker host having IP with `192.168.0.200` we have to navigate to this URL:
 
