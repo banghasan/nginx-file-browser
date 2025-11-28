@@ -1,0 +1,7 @@
+{
+  "extends": "stylelint-config-standard",
+  "ignoreFiles": ["css/vendor/**/*.css"],
+  "rules": {
+    "at-rule-no-unknown": null
+  }
+}

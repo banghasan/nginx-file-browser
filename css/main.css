@@ -50,24 +50,19 @@ a {
 }
 
 .file-list .directory .file-name::before {
-    background-image: url(../image/directory.png);
-
+    background-image: url("../image/directory.png");
 }
 
 .file-list .file .file-name::before {
-    background-image: url(../image/file.png);
+    background-image: url("../image/file.png");
 }
 
 .file-list .other .file-name::before {
-    background-image: url(../image/other.png);
+    background-image: url("../image/other.png");
 }
 
 .file-list .parent .file-name::before {
-    background-image: url(../image/parent.png);
-}
-
-.file-list .file-link {
-
+    background-image: url("../image/parent.png");
 }
 
 .file-list .file-date {
@@ -77,9 +72,6 @@ a {
     font-size: 70%;
     margin: 0 .5rem;
     color: #fff;
-}
-
-.file-list .directory .file-date {
 }
 
 .file-list .parent .file-date {

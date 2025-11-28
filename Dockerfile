@@ -1,6 +1,8 @@
-FROM nginx:alpine
+# syntax=docker/dockerfile:1.4
+ARG TARGETPLATFORM
+FROM --platform=$TARGETPLATFORM nginx:alpine
 
-LABEL author="Mohammad Naghavi <mohamnag@gmail.com>"
+LABEL author="Hasanudin H Syafaat <banghasan@gmail.com>"
 
 ADD default.conf /etc/nginx/conf.d/default.conf
 ADD css/ /opt/www/file-browser/css/

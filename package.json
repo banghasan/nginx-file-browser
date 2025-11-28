@@ -1,0 +1,35 @@
+{
+  "name": "nginx-file-browser",
+  "version": "1.0.0",
+  "description": "Static front-end to browse directories exposed by nginx autoindex.",
+  "main": "index.js",
+  "scripts": {
+    "lint:html": "htmlhint index.html",
+    "lint:css": "stylelint \"css/**/*.css\"",
+    "lint:js": "eslint js/main.js",
+    "lint": "npm run lint:html && npm run lint:css && npm run lint:js",
+    "test:e2e": "playwright test",
+    "test": "npm run lint && npm run test:e2e"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/banghasan/nginx-file-browser.git"
+  },
+  "keywords": [],
+  "author": "Hasanudin H Syafaat <banghasan@gmail.com>",
+  "license": "MIT",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/banghasan/nginx-file-browser/issues"
+  },
+  "homepage": "https://github.com/banghasan/nginx-file-browser#readme",
+  "devDependencies": {
+    "@playwright/test": "^1.57.0",
+    "eslint": "^9.39.1",
+    "globals": "^16.5.0",
+    "htmlhint": "^1.8.0",
+    "serve-handler": "^6.1.6",
+    "stylelint": "^16.26.0",
+    "stylelint-config-standard": "^39.0.1"
+  }
+}
