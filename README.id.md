@@ -75,6 +75,13 @@ docker buildx build \
 
 Jika hanya butuh image arm64 secara lokal, ganti `--platform` dengan `--platform linux/arm64` dan tambahkan `--load` agar image diimpor ke daemon Docker lokal tanpa perlu push.
 
+### Dockerfile arm64 khusus
+
+Untuk lingkungan yang memerlukan image arm64 tunggal (tanpa manifest
+multi-arch), gunakan `Dockerfile-arm64` yang memaksa basis arm64 dan diterbitkan
+otomatis melalui `.github/workflows/docker-image-arm64.yml` sebagai
+`banghasan/nginx-file-browser:latest-arm64`.
+
 ## Validasi lokal & CI
 
 Repo ini kini menyertakan linting HTML/CSS/JS serta uji end-to-end ringan

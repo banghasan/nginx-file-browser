@@ -82,6 +82,13 @@ If you only need an arm64 image locally you can replace `--platform` with
 `--platform linux/arm64` and append `--load` to import it into the local
 Docker daemon without pushing it anywhere.
 
+### Dedicated arm64 Dockerfile
+
+For environments that require a pre-built arm64-only image (without manifest
+lists) you can build `Dockerfile-arm64`, which forces the arm64 base image and
+is published by `.github/workflows/docker-image-arm64.yml` as
+`banghasan/nginx-file-browser:latest-arm64`.
+
 ## Local validation & CI
 
 HTML/CSS/JS linting as well as a lightweight Playwright end-to-end test now

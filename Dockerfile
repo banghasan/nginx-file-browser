@@ -1,6 +1,5 @@
-# syntax=docker/dockerfile:1.4
-ARG TARGETPLATFORM
-FROM --platform=$TARGETPLATFORM nginx:alpine
+# syntax=docker/dockerfile:1.6
+FROM nginx:alpine
 
 LABEL author="Hasanudin H Syafaat <banghasan@gmail.com>"
 
